@@ -35,7 +35,7 @@ export default function MainCart() {
                         </div>
                         <div className="flex justify-between mx-[5px]">
                             <button className="text-[14px]  h-[49px] mt-[10px] mb-[20px] w-[140px] bg-[#fff] border-2 text-[black] font-bold hover:bg-[black] hover:text-[#fff] border-[black]">CONTINUE SHOPPING</button>
-                            <button className="text-[14px]  h-[49px] mt-[10px] mb-[20px] w-[130px] bg-[black] hover:border-2 text-[#fff] font-bold hover:bg-[#fff] hover:text-[black] hover:border-[black]"><a href="http://localhost:3000/checkout">PLACE ORDER</a></button>
+                            <button className="text-[14px]  h-[49px] mt-[10px] mb-[20px] w-[130px] bg-[black] hover:border-2 text-[#fff] font-bold hover:bg-[#fff] hover:text-[black] hover:border-[black]"><a href="/checkout">PLACE ORDER</a></button>
                         </div>
                     </div>
                 </div>
