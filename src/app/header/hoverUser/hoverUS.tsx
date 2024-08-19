@@ -42,7 +42,7 @@ export function HoverUS() {
                 </div>
                 <div className="flex justify-center items-center gap-[2px] my-[20px]">
                     <p className="text-[16px] font-semibold text-[black]">New Member?</p>
-                    <p className="text-[16px] font-semibold text-[black]"><a className="hover:text-[blue] hover:underline" href="http://localhost:3000/registration">Register Now</a></p>
+                    <p className="text-[16px] font-semibold text-[black]"><a className="hover:text-[blue] hover:underline" href="/registration">Register Now</a></p>
                 </div>
             </div>
         </div>
