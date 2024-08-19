@@ -54,6 +54,6 @@ export function ButtonRegister() {
 
 export function ButtonAddNewReview() {
     return (
-        <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] font-sans text-[16px] font-semibold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer"><a href="http://localhost:3000/addnewreview">ADD NEW REVIEW</a></div>
+        <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] font-sans text-[16px] font-semibold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer"><a href="/addnewreview">ADD NEW REVIEW</a></div>
     )
 }
