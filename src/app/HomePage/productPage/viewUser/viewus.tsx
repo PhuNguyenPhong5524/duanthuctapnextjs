@@ -59,7 +59,7 @@ export default function ViewUserPage() {
         <>
         
             {
-                user.map((sp, i) => (
+                user.map((sp,i) => (
                     <div className="bg-[#fff] h-[384px] w-[245px] " key={i}>
                         <div className="grid justify-center">
                             <div className="relative bg-[#ededed] flex justify-center items-center w-[143px] h-[143px] ml-[10px] rounded-[50%] mt-[10px] mb-[20px]">
