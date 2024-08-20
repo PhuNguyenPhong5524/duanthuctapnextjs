@@ -6,6 +6,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import Link from "next/link"
  
 export function HoverUS() {
   return (
@@ -24,7 +25,7 @@ export function HoverUS() {
             <input type="text" placeholder="Email" className="border-2 border-black h-[40px] w-[270px] pl-[10px] mt-2 mb-[15px]"/>
             <label className="text-[12px] font-semibold text-[black]">Password</label>
             <input type="text" placeholder="Enter Password" className="border-2 border-black h-[40px] w-[270px] pl-[10px] mt-2"/>
-            <a href="#" className="text-[12px] font-semibold text-[blue] mt-[10px] translate-x-[160px] underline">Forgot Password?</a> 
+            <Link href="#" className="text-[12px] font-semibold text-[blue] mt-[10px] translate-x-[160px] underline">Forgot Password?</Link> 
             <div className="flex justify-center mb-[20px]"><Button variant="outline" className=" w-[145px] h-[49px] border-none rounded-[0px] mt-[20px] font-bold bg-black text-[#fff] hover:bg-[#e1e1e1] hover:text-[#000]">SIGN IN</Button></div>
             <p className="text-[14px] text-center font-bold ">Or</p>
             <div className="">
@@ -42,7 +43,7 @@ export function HoverUS() {
                 </div>
                 <div className="flex justify-center items-center gap-[2px] my-[20px]">
                     <p className="text-[16px] font-semibold text-[black]">New Member?</p>
-                    <p className="text-[16px] font-semibold text-[black]"><a className="hover:text-[blue] hover:underline" href="/registration">Register Now</a></p>
+                    <p className="text-[16px] font-semibold text-[black]"><Link className="hover:text-[blue] hover:underline" href="/registration">Register Now</Link></p>
                 </div>
             </div>
         </div>

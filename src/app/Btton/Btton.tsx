@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+
+
 export function ButtonShopNow() {
     return (
         <button className="absolute text-[16px] font-bold w-[160px] h-[63px] border-2 border-black translate-y-[-90px] bg-[#fff] hover:bg-[#000] hover:text-[#fff]" >SHOP NOW</button>
@@ -54,6 +58,6 @@ export function ButtonRegister() {
 
 export function ButtonAddNewReview() {
     return (
-        <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] font-sans text-[16px] font-semibold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer"><a href="/addnewreview">ADD NEW REVIEW</a></div>
+        <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] font-sans text-[16px] font-semibold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer"><Link href="/addnewreview">ADD NEW REVIEW</Link></div>
     )
 }

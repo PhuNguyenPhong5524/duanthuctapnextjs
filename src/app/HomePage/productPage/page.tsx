@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BannerSmall1 from "./bannerSmall1/page";
 import BannerSmall2 from "./bannerSmall2/page";
 import BoxProduct from "./boxProduct/page";
@@ -10,7 +11,7 @@ export default function ProductPage() {
     return (
         <div className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div className=" translate-x-[-121%] my-[30px]">
-                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">NEW ARRIVALS</h2> <a href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</a></div>
+                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">NEW ARRIVALS</h2> <Link href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</Link></div>
             </div>
             <div className="flex justify-between  gap-[15px] mb-[20px] ">
                     <div className="bg-[gray] w-[505px] h-[342px]">
