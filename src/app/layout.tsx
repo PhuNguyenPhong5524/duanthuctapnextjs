@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./footer/FooterComponent";
-import Header from "./header/page";
+import Footer from "./component/footer/FooterComponent";
+import Header from "./component/header/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       </head>
       <body className={inter.className}>
        <Header />
-      {children}
+           {children}
       <Footer />
       </body>
     </html>
