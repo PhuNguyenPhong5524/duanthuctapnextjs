@@ -26,7 +26,7 @@ export function TabsDemo() {
                 <h2 className="text-[30px] font-bold mb-[10px]">4565 Visitors</h2>
                 <ChartDashboard/>
             </div>
-            <div className="w-[50%]">
+            <div className="w-[50%] ">
                 <h2 className="text-[30px] font-bold mb-[10px]">4565 Visitors</h2>
                 <ChartDashboard/>
             </div>

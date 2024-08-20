@@ -56,7 +56,7 @@ import {
   
   export function TableDemo() {
     return (
-      <Table className="border-2 border-[black]">
+      <Table className="border-2 border-[black] mb-[50px]">
         <TableHeader className="border-b-2 border-[black]">
           <TableRow>
             <TableHead className="text-[black] font-bold">Product</TableHead>

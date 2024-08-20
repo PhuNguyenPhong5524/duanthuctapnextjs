@@ -6,7 +6,7 @@ export default function MainDASHBOARD() {
         <div className="bg-[#f1f1f1]  mt-[-30px] pt-[45px] pb-[50px] pl-[10px]">
             <div className="mt-[30px] mx-[220px]">
                 <div className=" text-[28px] font-bold mt-[30px]">
-                    <div className="h-[280vh] bg-[#fff] pt-[45px] ">
+                    <div className=" bg-[#fff] pt-[45px] ">
                         <div className="flex justify-center gap-[25px] ">
 
                         </div>

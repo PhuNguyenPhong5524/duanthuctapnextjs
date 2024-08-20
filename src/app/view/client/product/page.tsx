@@ -1,9 +1,8 @@
 "use client"
-
 import MainPageDetailPD from "./MainProductPage/main";
 import { getapiData } from "@/app/utils/axiosIntance";
 import { useEffect,useState } from "react";
-import { classname } from './../../../types/classname';
+import { classname } from '@/app/types/classname';
 
 
 
