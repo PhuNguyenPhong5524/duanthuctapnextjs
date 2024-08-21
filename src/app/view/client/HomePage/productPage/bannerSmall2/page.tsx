@@ -1,10 +1,11 @@
 export default function BannerSmall() {
+    let img = 'Đang cập nhật...'
     return (
-        <div className=" bg-[#e3e3e3] w-[1025px] h-[177px] flex justify-between items-center">
-                <div className="bg-[#e3e3e3] translate-x-[260px]">
-                    <i className="fa-regular fa-image text-[#d5d5d5] text-[100px]  "></i>
+        <div className=" bg-[#e3e3e3]  flex justify-between items-center relative">
+                <div className="overflow-hidden relative">
+                    <img src={img} alt={img} className="object-cover w-[1025px] h-[177px]" />
                 </div>
-                <div className="flex justify-center gap-[50px] items-center pr-[50px]">
+                <div className="absolute right-[10px] flex justify-center gap-[50px] items-center pr-[50px]">
                     <div>
                         <h2 className="text-[51px] font-bold font-sans">35% OFF</h2>
                         <p className="text-[22px]">All <strong >SKINCARE Items</strong></p>

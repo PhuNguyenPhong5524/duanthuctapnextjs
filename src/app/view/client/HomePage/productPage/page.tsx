@@ -2,7 +2,7 @@ import Link from "next/link";
 import BannerSmall1 from "./bannerSmall1/page";
 import BannerSmall2 from "./bannerSmall2/page";
 import BoxProduct from "./boxProduct/page";
-import BoxShowshop from "./boxShowshop/page";
+import {BoxShowshop, BoxShowshop2} from "./boxShowshop/page";
 import SlideProduct from "./slideProduct/page";
 import ViewUserPage from "./viewUser/viewus";
 
@@ -29,7 +29,7 @@ export default function ProductPage() {
                             <BoxProduct />
                     </div>
                     <div className="bg-[gray] w-[505px] h-[342px]">
-                        <BoxShowshop />
+                        <BoxShowshop2 />
                     </div>
             </div>
             
