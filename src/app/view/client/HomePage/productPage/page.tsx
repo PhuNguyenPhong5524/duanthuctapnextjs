@@ -4,7 +4,8 @@ import BannerSmall2 from "./bannerSmall2/page";
 import BoxProduct from "./boxProduct/page";
 import SlideProduct from "./slideProduct/page";
 import ViewUserPage from "./viewUser/viewus";
-import { BoxShowshop, BoxShowshopp } from "@/app/view/client/HomePage/productPage/boxShowshop/page";
+import BoxShowshop from "./boxShowshop/page";
+import BoxShowshopp from "./boxShowshop2/boxshop2";
 
 export default function ProductPage() {
     return (
