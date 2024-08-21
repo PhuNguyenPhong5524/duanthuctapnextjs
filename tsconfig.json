@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/registration/layout.tsx", "src/app/utils/axiosIntance.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/registration/layout.tsx", "src/app/utils/axiosIntance.tsx", "src/app/view/client/HomePage/slider/slider.tsx"],
   "exclude": ["node_modules"]
 }
