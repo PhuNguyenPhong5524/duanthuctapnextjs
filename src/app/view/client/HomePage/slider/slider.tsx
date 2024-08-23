@@ -42,16 +42,19 @@ export function Slider() {
       setCurrent(api.selectedScrollSnap() + 1)
     })
 
-    const interval = setInterval(() => {// setInterval đây là hàm Javascript dùng để lặp lại
+    const autoSlide = () => {
       const nextIndex = api.selectedScrollSnap() + 1
       if (nextIndex >= images.length) {
         api.scrollTo(0) // Chuyển về slide đầu tiên nếu đang ở slide cuối cùng
       } else {
         api.scrollNext() // Chuyển sang slide tiếp theo
       }
-    }, 4000) // Thời gian chuyển slide (3 giây)
+      setTimeout(autoSlide, 4000) // Đặt timeout mới cho lần chuyển slide tiếp theo
+    }
 
-    return () => clearInterval(interval) // hàm Xóa interval khi component bị unmount
+    const timeoutId = setTimeout(autoSlide, 4000) // Bắt đầu slide tự động
+
+    return () => clearTimeout(timeoutId) // Xóa timeout khi component bị unmount hoặc api thay đổi
   }, [api])
     
   return (
