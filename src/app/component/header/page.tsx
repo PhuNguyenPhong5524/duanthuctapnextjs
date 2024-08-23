@@ -5,11 +5,12 @@ import Link from "next/link";
 
 
 export default function Header() {
+    let logoo = './logoheader.png';
     return (
         <div className="bg-[#f1f1f1]">
             <Script src="https://kit.fontawesome.com/0f02d3980d.js"></Script>
-            <div className="mx-[225px] flex items-center justify-between pt-[15px] ">
-                <div className=""><Link href="/"><h1 className='text-[39px] font-semibold font-sans '>YOUR LOGO</h1></Link></div>
+            <div  className="mx-[225px] flex items-center justify-between pt-[15px] ">
+                <div className=""><Link href="/"><img src={logoo} alt={logoo} className="w-[300px] h-[70px] ml-[-4px]" /></Link></div>
                 <div className="flex items-center gap-[20px] ">
                     <div className="mx-[10px]"><input className="border-2 rounded-[5px] border-black h-[50px] w-[380px] pl-[10px] " type="text" placeholder="Type in and hit enter..." /></div>
                     <div className=" border-r-2 border-r-black pr-2 cursor-pointer">

@@ -63,7 +63,7 @@ export function Slider() {
         <Carousel setApi={setApi} className="w-full relative">
           <CarouselContent>
             {images.map((image) => (
-              <CarouselItem key={image.id} className="w-[298px] bg-[#fff]">
+              <CarouselItem key={image.id} className="w-full bg-[#fff]">
                 <div className="flex items-center justify-center">
                   <img src={image.src} alt={`Slide ${image.id}`} className="object-cover h-[600px] w-[100%]" />
                 </div>
