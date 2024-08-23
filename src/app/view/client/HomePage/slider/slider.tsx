@@ -18,11 +18,11 @@ interface img{
   src:string
 }
 const images: img[] = [
-  { id: 1, src: "https://ngocthanhmobile.com/uploads/2021/12/baiviet-big-sale-cuoi-nam-co-mot-khong-hai.png" },
-  { id: 2, src: "https://i.pinimg.com/736x/5a/5c/86/5a5c867bba6d55bb10207f03b7d54ed4.jpg" },
-  { id: 3, src: "https://s3v2.interdata.vn:9000/s3-586-15343-storage/dienthoaigiakho/wp-content/uploads/2022/11/31011903/1200x678_FB-Cover-1.jpg" },
-  { id: 4, src: "https://i.pinimg.com/564x/b1/5d/d9/b15dd9138d72890b81e67f812455638a.jpg" },
-  { id: 5, src: "https://intphcm.com/data/upload/noi-dung-banner-khai-truong.jpg" }
+  { id: 1, src: "https://i.pinimg.com/originals/5c/be/db/5cbedb44c373ec0778a6533cc71e865e.jpg" },
+  { id: 2, src: "https://ktpdesign.vn/wp-content/uploads/2020/09/5cf8b870584061.5d32a70860746.jpg" },
+  { id: 3, src: "https://nazibeauty.vn/wp-content/uploads/2019/08/banner-4.png" },
+  { id: 4, src: "https://nplaw.vn/upload/images/thong-tin-san-pham-khi-quang-cao-min.jpg" },
+  { id: 5, src: "https://nplaw.vn/upload/images/quang-cao-san-pham-my-pham-min.jpg" }
 ]
 export function Slider() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -41,8 +41,19 @@ export function Slider() {
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
-  }, [api])
 
+    const interval = setInterval(() => {// setInterval đây là hàm Javascript dùng để lặp lại
+      const nextIndex = api.selectedScrollSnap() + 1
+      if (nextIndex >= images.length) {
+        api.scrollTo(0) // Chuyển về slide đầu tiên nếu đang ở slide cuối cùng
+      } else {
+        api.scrollNext() // Chuyển sang slide tiếp theo
+      }
+    }, 4000) // Thời gian chuyển slide (3 giây)
+
+    return () => clearInterval(interval) // hàm Xóa interval khi component bị unmount
+  }, [api])
+    
   return (
     <div className="flex justify-center mt-[25px] relative">
       <div className="relative">

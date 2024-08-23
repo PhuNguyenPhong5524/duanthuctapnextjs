@@ -1,5 +1,5 @@
 export interface classname {
-    id:string
-    class_name: string
+    id_sp:number
+    ten_sp: string
 
 }

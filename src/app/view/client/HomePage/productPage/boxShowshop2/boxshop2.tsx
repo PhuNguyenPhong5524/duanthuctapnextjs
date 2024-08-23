@@ -4,7 +4,7 @@ import { ButtonShopNow } from "@/app/component/Btton/Btton";
 
 
 export default function BoxShowshopp() {
-    let img2='https://marketingtoancau.com/files/product/thiet-ke-banner-chuyen-nghiep-cho-cua-hang-dien-thoai-nhat-nam-mobile-dqovvmz5.jpg';
+    let img2='https://hali.vn/wp-content/uploads/2020/07/thiet-ke-banner-my-pham27.jpg';
     return (
         <div className="relative "> 
                   <div className="bg-[#e3e3e3] flex justify-center h-[342px] relative overflow-hidden">

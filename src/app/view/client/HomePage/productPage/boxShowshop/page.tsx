@@ -2,7 +2,7 @@ import { ButtonShopNow } from "@/app/component/Btton/Btton";
 
 
 export default function BoxShowshop() {
-    let img1='https://img.pikbest.com/origin/09/06/37/125pIkbEsTPm3.jpg!w700wp';
+    let img1='https://hali.vn/wp-content/uploads/2020/07/thiet-ke-banner-my-pham33.jpg';
     return (
         <div className="relative "> 
             <div className="bg-[#e3e3e3] flex justify-center h-[342px] relative overflow-hidden">

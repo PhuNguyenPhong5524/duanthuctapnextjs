@@ -21,8 +21,8 @@ export default function PageDetailProduct() {
         <div className=" bg-[#f1f1f1]">
             {datasp.map((sp, i) => (
                 <div key={i} className="mt-[100px]">
-                    {sp.id}
-                    {sp.class_name}
+                    {sp.id_sp}
+                    {sp.ten_sp}
                 </div>
             ))}
             <MainPageDetailPD />
