@@ -18,11 +18,11 @@ interface img{
   src:string
 }
 const images: img[] = [
-  { id: 1, src: "https://i.pinimg.com/originals/5c/be/db/5cbedb44c373ec0778a6533cc71e865e.jpg" },
-  { id: 2, src: "https://ktpdesign.vn/wp-content/uploads/2020/09/5cf8b870584061.5d32a70860746.jpg" },
-  { id: 3, src: "https://nazibeauty.vn/wp-content/uploads/2019/08/banner-4.png" },
-  { id: 4, src: "https://nplaw.vn/upload/images/thong-tin-san-pham-khi-quang-cao-min.jpg" },
-  { id: 5, src: "https://nplaw.vn/upload/images/quang-cao-san-pham-my-pham-min.jpg" }
+  { id: 1, src: "https://theme.hstatic.net/1000084535/1001065151/14/slider-index-3.jpg?v=14" },
+  { id: 2, src: "https://nguyencongpc.vn/media/news/1069-274295881_3110865975898620_1417727696820541299_n.jpg" },
+  { id: 3, src: "https://kimlongcenter.com/upload/image/lap-top-doanh-nhan-cao-cap(1).jpg" },
+  { id: 4, src: "https://cdn.tgdd.vn/News/1561630/laptopvanphongdangmua-1280x720.jpg" },
+  { id: 5, src: "https://nguyencongpc.vn/media/lib/18-05-2022/banner.jpg" }
 ]
 export function Slider() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -65,7 +65,7 @@ export function Slider() {
             {images.map((image) => (
               <CarouselItem key={image.id} className="w-full bg-[#fff]">
                 <div className="flex items-center justify-center">
-                  <img src={image.src} alt={`Slide ${image.id}`} className="object-cover h-[600px] w-[100%]" />
+                  <img src={image.src} alt={`Slide ${image.id}`} className="h-[588px] w-[100%]" />
                 </div>
               </CarouselItem>
             ))}

@@ -1,30 +1,15 @@
 "use client"
-import MainPageDetailPD from "./MainProductPage/main";
-import { getapiData } from "@/app/utils/axiosIntance";
-import { useEffect,useState } from "react";
-import { classname } from '@/app/types/classname';
+
+import MainPageDetailPD from './[idloai]/page';
+
 
 
 
 export default function PageDetailProduct() {
-    const [datasp, setdatasp] = useState<classname[]>([]);
-    useEffect(() => {
-        const fecthdata = async () =>{
-            const data = await getapiData();
-            setdatasp(data);
-            console.log(data);
-        }
-        fecthdata();
-    }, []);
+
     
     return (
-        <div className=" bg-[#f1f1f1]">
-            {datasp.map((sp, i) => (
-                <div key={i} className="mt-[100px]">
-                    {sp.id_sp}
-                    {sp.ten_sp}
-                </div>
-            ))}
+        <div className=" bg-[#f1f1f1] ">
             <MainPageDetailPD />
         </div>
     );

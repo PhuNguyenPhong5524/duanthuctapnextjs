@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./component/footer/FooterComponent";
 import Header from "./component/header/page";
+import HeadLG from "./component/headlg/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,12 +16,12 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logo.png" type="image/png" />
-      </head>
+      <HeadLG/>
       <body className={inter.className}>
        <Header />
+       <main id="main">
            {children}
+       </main>
       <Footer />
       </body>
     </html>

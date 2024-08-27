@@ -1,5 +1,7 @@
 export interface classname {
-    id_sp:number
+    id:number
     ten_sp: string
-
+    hinh: string
+    gia: number,
+    gia_km:number
 }

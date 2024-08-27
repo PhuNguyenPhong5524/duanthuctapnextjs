@@ -2,10 +2,10 @@ import Link from "next/link";
 import BannerSmall1 from "./bannerSmall1/page";
 import BannerSmall2 from "./bannerSmall2/page";
 import BoxProduct from "./boxProduct/page";
-import SlideProduct from "./slideProduct/page";
 import ViewUserPage from "./viewUser/viewus";
 import BoxShowshop from "./boxShowshop/page";
 import BoxShowshopp from "./boxShowshop2/boxshop2";
+import { SlideProduct } from "./slideProduct/page";
 
 export default function ProductPage() {
     return (
@@ -38,8 +38,8 @@ export default function ProductPage() {
             </div>
             <div className=" relative flex justify-between gap-[15px] items-center mb-[30px]  ">
                     <SlideProduct />
-                    <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
-                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div>
+                    {/* <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
+                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div> */}
             </div> 
             <div  >
                 <BannerSmall1 />
@@ -49,8 +49,8 @@ export default function ProductPage() {
             </div>
             <div className=" relative flex justify-between gap-[15px]    items-center mb-[30px]  ">
                     <SlideProduct />
-                    <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
-                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div>
+                    {/* <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
+                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div> */}
             </div> 
             <div  >
                 <BannerSmall2 />
