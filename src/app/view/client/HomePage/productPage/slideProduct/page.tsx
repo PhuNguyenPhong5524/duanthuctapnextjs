@@ -27,7 +27,7 @@ export default function SlideProduct() {
        console.log(data);
      }
        fecthData();
-   })
+   },[])
     
 const oneusd = 24000;
   return (
