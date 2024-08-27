@@ -5,7 +5,7 @@ import BoxProduct from "./boxProduct/page";
 import ViewUserPage from "./viewUser/viewus";
 import BoxShowshop from "./boxShowshop/page";
 import BoxShowshopp from "./boxShowshop2/boxshop2";
-import { SlideProduct } from "./slideProduct/page";
+import SlideProduct from "./slideProduct/page";
 
 
 export default function ProductPage() {

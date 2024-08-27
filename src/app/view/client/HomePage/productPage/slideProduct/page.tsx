@@ -18,7 +18,7 @@ import {
 import { classname } from "@/app/types/classname";
 import { getapiDataProductNew } from "@/app/utils/axiosIntance";
 
-export function SlideProduct() {
+export default function SlideProduct() {
    const [productnew,setproductnew] = useState<classname[]>([]);
    useEffect(() => {
      const fecthData = async () =>{
