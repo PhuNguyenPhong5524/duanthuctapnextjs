@@ -7,6 +7,7 @@ import BoxShowshop from "./boxShowshop/page";
 import BoxShowshopp from "./boxShowshop2/boxshop2";
 import { SlideProduct } from "./slideProduct/page";
 
+
 export default function ProductPage() {
     return (
         <div className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
