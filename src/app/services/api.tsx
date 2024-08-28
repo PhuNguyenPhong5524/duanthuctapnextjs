@@ -18,3 +18,9 @@ export const apiProductWithCaterogy = (idloai: number) => {
         baseURL: `http://localhost:3000/sptrongloai/${idloai}`,
     });
 }
+
+export const apiProductDetail = (id: number) => {
+    return axios.create({
+         baseURL: `http://localhost:3000/sp/${id}`,
+     });
+ }

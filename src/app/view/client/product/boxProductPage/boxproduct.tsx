@@ -2,7 +2,6 @@
 import { getapiDataWithCaterogyandProduct } from "@/app/utils/axiosIntance";
 import { useEffect,useState } from "react";
 import { classname } from '@/app/types/classname';
-import { useRouter } from "next/router";
 import Link  from "next/link";
 import * as React from "react"
 import { useParams } from "next/navigation";

@@ -1,29 +1,51 @@
 
+"use client"
+
 import Reviews from "./reviews/reviews";
 import TopReviews from "./topreviews/topreviews";
 import SlideProduct from "../../HomePage/productPage/slideProduct/page";
 import { ButtonKindDetailPageSmall, ButtonSHOPWITHME, ButtonViewMore, ButtonWRITEREVIEW } from "@/app/component/Btton/Btton";
 import { BoxTrackPrice } from "./boxTrackPrice/boxTrackPrice";
+import { getapiDataProductDetail } from "@/app/utils/axiosIntance";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import IProductDetail from './../../../../types/inrterfaceProductDetail';
 
 
-export default function MainDetail(props: any) {
-    console.log(props);
+
+export default function MainDetail() {
+    const [productdetail,setproductdetail] = useState<IProductDetail | null >(null);
+    const {id} = useParams();
+    useEffect(() => {
+      const fecthData = async () =>{
+        const data = await getapiDataProductDetail(Number(id));
+        setproductdetail(data);
+        console.log(data);
+      }
+        fecthData();
+    },[id])
+
+
+
     return (
         <div className="bg-[#f1f1f1] mt-[-30px] " >
+            {productdetail && (
                <div className="pt-[40px] grid justify-center">
                     <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Brand</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Product Name</a>  </div>
                         <div className="h-[514px] w-[1025px] ml-[10px] bg-[#fff] mt-[20px] pt-[45px] mb-[15px]">
                             <div className="grid grid-cols-[5%_50%_45%] mx-[40px] gap-[20px] justify-center">
                             <div className=" flex flex-col justify-start items-center gap-[10px] pt-[5px]">
-                                <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
-                                <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
+                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[55px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
+                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[55px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
+                                {/* <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
                                 <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer "><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
-                                <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
+                                <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div> */}
                             </div>
-                            <div className="bg-[#f1f1f1] h-[415px] mt-[5px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[100px] "></i></div>
+                            <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#f1f1f1] h-[415px] mt-[5px] flex justify-center items-center cursor-pointer" /> 
                             <div className=" mt-[5px]">
                                 <p className="text-[14px] font-bold">BRAND</p>
-                                <h1 className="font-sans text-[26px] font-semibold">Product Name Goes Here</h1>
+                                <h1 className="font-sans text-[26px] font-semibold">{productdetail.ten_sp}</h1>
                                 <div className="flex items-center gap-[10px] mt-[1px]">
                                     <div><i className="fa-regular fa-heart text-[18px] "></i></div>
                                     <div><p className="mt-[5px] text-[14px] ml-[-8px] font-semibold">Add to Favourites</p></div>
@@ -163,14 +185,24 @@ export default function MainDetail(props: any) {
                             </div>
                         </div>
                 </div>
+
+)}
+
+
+
+
+
+
+
+
+
+                
                 <div className="h-[488px] bg-[#fff] mt-[5px] flex justify-center">
                     <div className="py-[20px]">
                         <h2 className="mx-[16px] ml-[-1px] text-[26px] mb-[20px] font-bold">Product Details</h2>
-                        <div className="grid grid-cols-[25%_25%_25%_25%] gap-[10px] items-center relative">
+                        
                             <SlideProduct/>
-                            <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
-                            <div className="absolute  bg-[#cccccc] right-[-22px] trans-late-x-[10px] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div>
-                        </div>
+                        
                     </div>
                 </div>
         </div>

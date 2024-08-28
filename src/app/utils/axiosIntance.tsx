@@ -1,4 +1,5 @@
-import { api, apiCaterogy, apiProductNew, apiProductWithCaterogy } from "../services/api";
+import { api, apiCaterogy, apiProductDetail, apiProductNew, apiProductWithCaterogy } from "../services/api";
+
 
 export const getapiDataProduct = async () => {
     const response = await api.get("/");
@@ -18,5 +19,11 @@ export const getapiDataProductNew = async () => {
 export const getapiDataWithCaterogyandProduct = async (idloai: number) => {
     const apii = apiProductWithCaterogy(idloai);
     const response = await apii.get('/');
+    return response.data;
+}
+
+export const getapiDataProductDetail = async (id: number) => {
+    const apiPdDt = apiProductDetail(id);
+    const response = await apiPdDt.get('/');
     return response.data;
 }

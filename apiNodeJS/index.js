@@ -82,24 +82,47 @@ app.get('/sanpham/:id', function(req, res) {
 });
 
 
-app.get('/sp/:id/:id_loai', function(req, res) {
-  let id = parseInt(req.params.id || 0); 
-  let id_loai = parseInt(req.params.id_loai || 0);     
-  if (isNaN(id) || id <= 0 || isNaN(id_loai) || id_loai <= 0) { 
-      res.json({"thong_bao": "Không biết sản phẩm hoặc loại sản phẩm", "id": id, "id_loai": id_loai});  
+// app.get('/sp/:id/:id_loai?', function(req, res) {
+//   let id = parseInt(req.params.id || 0); 
+//   let id_loai = parseInt(req.params.id_loai || 0);     
+//   if (isNaN(id) || id <= 0 || isNaN(id_loai) || id_loai <= 0) { 
+//       res.json({"thong_bao": "Không biết sản phẩm hoặc loại sản phẩm", "id": id, "id_loai": id_loai});  
+//       return; 
+//   } 
+
+//   let sql = `
+//     SELECT sp.id, sp.id_loai, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, 
+//            tt.ram, tt.cpu, tt.dia_cung, tt.can_nang
+//     FROM san_pham sp
+//     LEFT JOIN thuoc_tinh tt ON sp.id = tt.id_sp
+//     LEFT JOIN loai l ON sp.id_loai = l.id
+//     WHERE sp.id = ? AND sp.id_loai = ?;
+//   `
+//   ;
+//    db.query(sql, [id, id_loai], (err, data) => {
+//     if (err) {
+//         res.json({"Thông báo": "Lỗi lấy chi tiết sản phẩm", "error": err});
+//     } else {
+//         res.json(data[0]);
+//     }
+// });  
+// });
+app.get('/sp/:id', function(req, res) {
+  let id = parseInt(req.params.id || 0);     
+  if (isNaN(id) || id <= 0 ) { 
+      res.json({"thong_bao": "Không biết sản phẩm hoặc loại sản phẩm", "id": id});  
       return; 
   } 
 
   let sql = `
-    SELECT sp.id, sp.id_loai, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, 
+    SELECT sp.id, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, 
            tt.ram, tt.cpu, tt.dia_cung, tt.can_nang
     FROM san_pham sp
     LEFT JOIN thuoc_tinh tt ON sp.id = tt.id_sp
-    LEFT JOIN loai l ON sp.id_loai = l.id
-    WHERE sp.id = ? AND sp.id_loai = ?;
+    WHERE sp.id = ? ;
   `
   ;
-   db.query(sql, [id, id_loai], (err, data) => {
+   db.query(sql, id, (err, data) => {
     if (err) {
         res.json({"Thông báo": "Lỗi lấy chi tiết sản phẩm", "error": err});
     } else {
@@ -107,7 +130,6 @@ app.get('/sp/:id/:id_loai', function(req, res) {
     }
 });  
 });
-
 
 app.get('/sptrongloai/:idloai', function(req, res) {
   let idloai = parseInt(req.params.idloai);
