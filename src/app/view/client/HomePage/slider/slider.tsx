@@ -65,7 +65,7 @@ export function Slider() {
             {images.map((image) => (
               <CarouselItem key={image.id} className="w-full bg-[#fff]">
                 <div className="flex items-center justify-center">
-                  <img src={image.src} alt={`Slide ${image.id}`} className="h-[588px] w-[100%]" />
+                  <img src={image.src} alt={`Slide ${image.id}`} className="h-[583px] w-[100%]" />
                 </div>
               </CarouselItem>
             ))}

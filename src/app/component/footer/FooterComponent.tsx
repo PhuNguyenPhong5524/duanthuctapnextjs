@@ -1,10 +1,16 @@
+import Link from "next/link";
+
+
 export default function Footer() {
+    let logoo = './logo.png';
     return (
        <div className=" flex justify-center">
              <div className="h-[373px] bg-[#d0d0d0] px-[284px] grid grid-cols-[20%_18%_13%_16%_38%] gap-[20px] items-start pt-[5%] justify-center">
                 <div className="translate-y-[-20px]">
-                    <h1 className="text-[30px] font-sans font-semibold mb-[8px]">YOUR LOGO</h1>
-                    <div className="flex gap-[12px]">
+                
+                        <Link href="/" className=" "><img src={logoo} alt={logoo} className="w-[150px] h-[130px]" /></Link>
+              
+                    <div className="flex gap-[12px] mt-[10px] ml-[10px]">
                         <div><i className="fa-brands fa-square-facebook text-[24px]"></i></div>
                         <div><i className="fa-brands fa-square-twitter text-[24px]"></i></div>
                         <div><i className="fa-brands fa-square-google-plus text-[24px]"></i></div>
