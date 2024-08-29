@@ -41,10 +41,10 @@ const oneusd = 24000;
         {productnew.map((sp) => (
           <CarouselItem key={sp.id} className="md:basis-1/2 lg:basis-1/4">
             <div className="p-1">
-                <div className="bg-[#fff] h-[360px] w-[240px] shadow-none mb-[10px] hover:shadow-[0px_8px_24px_rgba(139,146,153,0.2)] hover"  key={sp.id}>
+                <div className="relative group bg-[#fff] h-[360px] w-[240px] shadow-none mb-[10px] overflow-hidden hover:shadow-[0px_8px_24px_rgba(139,146,153,0.2)] "  key={sp.id}>
                  
                     <div className=" flex justify-center h-[260px] ">
-                        <div className="flex justify-center items-center"><img src={sp.hinh} alt={sp.ten_sp} className="h-[130px]" /> </div>       
+                        <div className="flex justify-center items-center"><img src={sp.hinh} alt={sp.ten_sp} className="h-[130px] transition-transform ease-in-out transform duration-300 group-hover:scale-[120%]" /> </div>       
                         <div className="absolute ml-[-160px] mt-[220px] text-[#fff] text-[10px] w-[66px] h-[24px] bg-[black] flex justify-center items-center font-bold">CATEGORY</div>
                     </div>
                     <div>

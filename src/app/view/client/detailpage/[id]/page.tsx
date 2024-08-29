@@ -11,23 +11,31 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import IProductDetail from './../../../../types/inrterfaceProductDetail';
+import { useCart } from "@/app/contexts/CartContext";
 
 
-
-export default function MainDetail() {
-    const [productdetail,setproductdetail] = useState<IProductDetail | null >(null);
-    const {id} = useParams();
+const MainDetail: React.FC = () => {
+    const [productdetail, setProductDetail] = useState<IProductDetail | null>(null);
+    const { id } = useParams();
+    const { addToCart } = useCart();
+  
     useEffect(() => {
-      const fecthData = async () =>{
-        const data = await getapiDataProductDetail(Number(id));
-        setproductdetail(data);
-        console.log(data);
+      const fetchData = async () => {
+        if (id) {
+          const data = await getapiDataProductDetail(Number(id));
+          setProductDetail(data);
+          console.log(data);
+        }
+      };
+      fetchData();
+    }, [id]);
+
+    const handleAddToCart = () => {
+      if (productdetail) {
+        addToCart({...productdetail, quantity: 1 });
       }
-        fecthData();
-    },[id])
-
-    const oneusd:number = 24000;
-
+    };
+    const oneusd: number = 24000;
     return (
         <div className="bg-[#f1f1f1] mt-[-30px] " >
             {productdetail && (
@@ -67,8 +75,8 @@ export default function MainDetail() {
                                     <BoxTrackPrice productdetail= {productdetail}/>
                                 </div>
                                 <div className="flex gap-[10px] mt-[10px]">
-                                     <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] text-[16px] font-sans font-bold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer">ADD TO CART</div>
-                                     <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] text-[16px] font-sans font-bold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer">BUY NOW </div>
+                                     <button onClick={handleAddToCart} className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] text-[16px] font-sans font-bold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer">ADD TO CART</button>
+                                     <button className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] text-[16px] font-sans font-bold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer">BUY NOW </button>
                                 </div>
                                 <div className="flex items-center gap-[10px] my-[10px]">
                                     <div><i className="fa-solid fa-heart text-[18px] mr-[5px]"></i></div>
@@ -209,3 +217,4 @@ export default function MainDetail() {
 
     );
 }
+export default  MainDetail;

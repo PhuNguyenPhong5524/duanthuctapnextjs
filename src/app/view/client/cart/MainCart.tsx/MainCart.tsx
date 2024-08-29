@@ -7,11 +7,8 @@ export default function MainCart() {
             <div className="pt-[40px] grid justify-center">
                 <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Cart</a> </div>
                 <h2 className="text-[28px] mx-[8px] font-sans mt-[10px] font-bold">CART</h2>
-                <div className="h-[700px] w-[1025px] ml-[10px] mt-[20px] mb-[15px] flex justify-between">
+                <div className="h-auto w-[1025px] ml-[10px] mt-[20px] mb-[15px] flex justify-between">
                 <div className="bg-[#fff] h-full w-[62%] pt-[45px] px-[20px]">
-                    <ProductCart/>
-                    <ProductCart/>
-                    <ProductCart/>
                     <ProductCart/>
                 </div>
                 <div className="bg-[#fff] h-[512px] w-[35%] pt-[45px] px-[20px]">

@@ -37,7 +37,7 @@ interface MainDetailProps {
                                 <div className="mr-[25px]">
                                     <p className="text-[14px] font-sans font-bold text-[black]">AED {(productdetail.gia_km / oneusd).toFixed(1)}</p>
                                 </div>
-                                <div className="border-2 border-[#000] text-[15px] font-[700] p-[2px] w-[95px] h-[32px] font-semibold flex justify-center items-center"><p>{(Math.round(((productdetail.gia - productdetail.gia_km)/productdetail.gia)*100))}% OFF</p></div>
+                                <div className="border-2 border-[#000] text-[15px] font-[700] p-[2px] w-[95px] h-[32px] flex justify-center items-center"><p>{(Math.round(((productdetail.gia - productdetail.gia_km)/productdetail.gia)*100))}% OFF</p></div>
                             </div>
                         </div>
                     </div>

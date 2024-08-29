@@ -4,6 +4,8 @@ import "./globals.css";
 import Footer from "./component/footer/FooterComponent";
 import Header from "./component/header/page";
 import HeadLG from "./component/headlg/head";
+import { CartProvider } from "./contexts/CartContext";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,11 +20,13 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="en">
       <HeadLG/>
       <body className={inter.className}>
-       <Header />
-       <main id="main">
-           {children}
-       </main>
-      <Footer />
+       <CartProvider>
+          <Header />
+          <main id="main">
+              {children}
+          </main>
+          <Footer />
+       </CartProvider>
       </body>
     </html>
   );

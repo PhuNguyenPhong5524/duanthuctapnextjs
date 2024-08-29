@@ -12,8 +12,8 @@ export function HoverUS() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link" style={{textDecoration:"none"}}>            
-            <div ><i className="fa-solid fa-user"></i></div> 
+        <Button variant="link" style={{textDecoration:"none"}} className="h-[25px]">            
+            <div ><i className="fa-solid fa-user text-[20px]"></i></div> 
             <p className="mx-[10px] text-[16px] font-semibold hover:underline-none">User</p>
         </Button>
       </HoverCardTrigger>

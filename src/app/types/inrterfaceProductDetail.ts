@@ -13,5 +13,6 @@ interface IProductDetail {
     can_nang: string;
     mo_ta:string;
     ten_loai:string
+    quantity?: number
 }
 export default IProductDetail;

@@ -1,31 +1,38 @@
+"use client"
+
+
 import Script from "next/script";
 import { DropdownMenuDemo } from "./dropdowns/menudrop";
 import { HoverUS } from "./hoverUser/hoverUS";
 import Link from "next/link";
+import React from 'react';
+import { useCart } from "@/app/contexts/CartContext";
 
 
-export default function Header() {
+ const Header: React.FC = () => {
     let logoo = './logo.png';
+    const {cart} = useCart();
     return (
         <div className="bg-[#f1f1f1]">
             <Script src="https://kit.fontawesome.com/0f02d3980d.js"></Script>
             <div  className="mx-[225px] flex items-center justify-between pt-[15px] ">
                 <div className="">
-                    <Link href="/" className="flex justify-center items-center text-[20px] font-sans font-[700] "><img src={logoo} alt={logoo} className="w-[85px] h-[75px] ml-[-4px]" />Thiết bị điện tử <hr className="absolute w-[120px] border-2 border-[black] rouded-[10px] border-2 mt-[40px] ml-[80px]"/></Link>
+                    <Link href="/" className="  "><img src={logoo} alt={logoo} className="w-[85px] h-[75px] ml-[-4px]" /></Link>
                 </div>
                 <div className="flex items-center gap-[20px] ">
-                    <div className="mx-[10px]"><input className="border-2 rounded-[5px] border-black h-[50px] w-[380px] pl-[10px] " type="text" placeholder="Type in and hit enter..." /></div>
+                    <div className="mx-[10px]"><input className="border-2 rounded-[5px] border-black h-[45px] w-[380px] pl-[10px] " type="text" placeholder="Type in and hit enter..." /></div>
                     <div className=" border-r-2 border-r-black pr-2 cursor-pointer">
-                        <Link href="/view/client/cart" className="flex justify-center">
-                            <div><i className="fa-solid fa-cart-shopping"> </i> </div> 
-                            <p className="mx-[10px] text-[16px] font-semibold">Cart</p>
+                        <Link href="/view/client/cart" className="flex justify-center mx-[18px]">
+                            <div className="absolute ml-[-22px] mt-[-6px] flex justify-center items-center mx-[10px] text-[14px] border-none text-[#fff] font-semibold bg-[red]  w-[16px] h-4 rounded-full ml">{cart.length}</div>
+                            <div><i className="fa-solid fa-cart-shopping text-[20px]"> </i> </div> 
+                            <p className="mx-[15px] text-[16px] font-semibold">Cart</p>
                         </Link>
                     </div>
-                    <div className="flex justify-center  border-r-2 border-r-black pr-2 cursor-pointer">
+                    <div className="flex justify-center  border-r-2 border-r-black pr-2 cursor-pointer ">
                         <HoverUS />
                     </div>
-                    <div className="flex cursor-pointer">
-                        <div className=" text-[16px] font-semibold">عربى</div> 
+                    <div className=" cursor-pointer ">
+                        <div className=" text-[20px] font-semibold">عربى</div> 
                     </div>
                 </div>
             </div>
@@ -45,3 +52,6 @@ export default function Header() {
         </div>
     );
 }
+
+
+export default Header;
