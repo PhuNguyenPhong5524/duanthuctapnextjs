@@ -37,8 +37,8 @@ export default function BoxProductPage() {
                 <p className="text-[11px] pl-[8px] translate-y-[-15px] font-sans font-medium">BRAND</p>
                 <div className="relative flex gap-[5px] mx-[8px] items-center translate-y-[-12px]">
                     <div>
-                        <p className="text-[12px] font-sans font-bold text-[#c2c2c2]">AED {(sp.gia / oneusd).toFixed(1)}</p>
-                        <p className="absolute translate-y-[-11px] border-[1.5px] w-[67px] ml-[-1px] bg-[#464646]"></p>
+                        <p className="text-[12px] font-sans font-bold text-[#c2c2c2]"><del>AED {(sp.gia / oneusd).toFixed(1)}</del></p>
+                        {/* <p className="absolute translate-y-[-11px] border-[1.5px] w-[67px] ml-[-1px] bg-[#464646]"></p> */}
                     </div>
                     <div className="mr-[18px] ml-[5px]">
                         <p className="text-[14px] font-sans font-bold text-[black]">AED {(sp.gia_km / oneusd).toFixed(1)}</p>

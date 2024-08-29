@@ -10,6 +10,8 @@ interface IProductDetail {
     ram: string;
     cpu: string;
     dia_cung: string;
-    can_nang: string
+    can_nang: string;
+    mo_ta:string;
+    ten_loai:string
 }
 export default IProductDetail;

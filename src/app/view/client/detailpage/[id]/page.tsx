@@ -5,7 +5,7 @@ import Reviews from "./reviews/reviews";
 import TopReviews from "./topreviews/topreviews";
 import SlideProduct from "../../HomePage/productPage/slideProduct/page";
 import { ButtonKindDetailPageSmall, ButtonSHOPWITHME, ButtonViewMore, ButtonWRITEREVIEW } from "@/app/component/Btton/Btton";
-import { BoxTrackPrice } from "./boxTrackPrice/boxTrackPrice";
+import BoxTrackPrice  from "./boxTrackPrice/boxTrackPrice";
 import { getapiDataProductDetail } from "@/app/utils/axiosIntance";
 import * as React from "react";
 import { useEffect, useState } from "react";
@@ -26,25 +26,25 @@ export default function MainDetail() {
         fecthData();
     },[id])
 
-
+    const oneusd:number = 24000;
 
     return (
         <div className="bg-[#f1f1f1] mt-[-30px] " >
             {productdetail && (
                <div className="pt-[40px] grid justify-center">
-                    <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Brand</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Product Name</a>  </div>
+                    <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Brand</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.slug}</a>  </div>
                         <div className="h-[514px] w-[1025px] ml-[10px] bg-[#fff] mt-[20px] pt-[45px] mb-[15px]">
                             <div className="grid grid-cols-[5%_50%_45%] mx-[40px] gap-[20px] justify-center">
                             <div className=" flex flex-col justify-start items-center gap-[10px] pt-[5px]">
-                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[55px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
-                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[55px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
+                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[50px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
+                                <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[50px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
                                 {/* <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
                                 <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer "><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
                                 <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div> */}
                             </div>
-                            <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#f1f1f1] h-[415px] mt-[5px] flex justify-center items-center cursor-pointer" /> 
+                            <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#f1f1f1] h-[380px] mt-[5px] flex justify-center items-center cursor-pointer" /> 
                             <div className=" mt-[5px]">
-                                <p className="text-[14px] font-bold">BRAND</p>
+                                <p className="text-[14px] font-bold">{productdetail.ten_loai}</p>
                                 <h1 className="font-sans text-[26px] font-semibold">{productdetail.ten_sp}</h1>
                                 <div className="flex items-center gap-[10px] mt-[1px]">
                                     <div><i className="fa-regular fa-heart text-[18px] "></i></div>
@@ -54,17 +54,17 @@ export default function MainDetail() {
                                 <a href="#" className="text-[12px] underline font-extrabold hover:text-[blue]">Read More</a>
                                 <div className="relative flex gap-[5px]  items-center mb-[10px]">
                                     <div>
-                                        <p className="text-[17px] font-sans font-semibold text-[#c2c2c2]">AED 32.00</p>
-                                        <p className="absolute translate-y-[-15px] border-[1.5px] w-[82px] ml-[-1px] bg-[#464646]"></p>
+                                        <p className="text-[17px] font-sans font-semibold text-[#c2c2c2]"><del>AED {(productdetail.gia / oneusd).toFixed(1)}</del></p>
+                                        {/* <p className="absolute translate-y-[-15px] border-[1.5px] w-[82px] ml-[-1px] bg-[#464646]"></p> */}
                                     </div>
                                     <div className="mr-[25px]">
-                                        <p className="text-[17px] font-sans font-bold text-[black]">AED 25.60</p>
+                                        <p className="text-[20px] font-sans font-bold text-[black]">AED {(productdetail.gia_km / oneusd).toFixed(1)}</p>
                                     </div>
-                                    <div className="border-2 flex justify-center items-center border-[#000] text-[16px] p-[5px] w-[100px] h-[32px] font-bold ">30% OFF</div>
+                                    <div className="border-2 flex justify-center items-center border-[#000] text-[16px] p-[5px] w-[100px] h-[32px] font-bold ">{(Math.round(((productdetail.gia - productdetail.gia_km)/productdetail.gia)*100))} % OFF</div>
                                 </div>
                                 <div className="text-[14px] font-bold flex gap-[10px] my-[10px]">
                                     <p>You can track the price of this product</p>
-                                    <BoxTrackPrice/>
+                                    <BoxTrackPrice productdetail= {productdetail}/>
                                 </div>
                                 <div className="flex gap-[10px] mt-[10px]">
                                      <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] text-[16px] font-sans font-bold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer">ADD TO CART</div>
@@ -136,8 +136,8 @@ export default function MainDetail() {
                         </div>
 
                         <div className="h-[746px] w-[1025px] ml-[10px] bg-[#fff] mt-[5px]  pt-[45px] mb-[40px]">
-                            <h2 className="mx-[16px] text-[22px] font-bold">Product Details</h2>
-                            <p className="mx-[16px] mt-[10px] mb-[20px] text-[13px] font-semibold text-justify">Ad illum natoque volutpat leo curabitur est nisi reprehenderit quisque illo ullam scelerisque viverra taciti voluptatum adipiscing omnis vel augue convallis anim dis quis et molestiae, eos aenean corrupti neque? Interdum, quisque diam molestie porta iaculis earum? Non magni bibendum eum fugiat, fringilla donec! Facilis eligendi litora mattis similique laborum dictumst sapien cubilia aute. Etiam, architecto bibendum, est odit laboriosam. Tempora minim maiores voluptatum. Cillum? Posuere. Imperdiet adipisci, beatae reprehenderit bibendum optio reiciendis pellentesque inceptos, quos pulvinar pellentesque, elit sociis? Felis omnis est quis, officiis dolor accusamus fusce saepe veritatis, quo feugiat etiam lobortis laboris assumenda minus nullam molestie, proin.</p>
+                            <h2 className="mx-[16px] text-[22px] font-bold">Product Description</h2>
+                            <p className="mx-[16px] mt-[10px] mb-[20px] text-[13px] font-semibold text-justify">{productdetail.mo_ta}</p>
                             <h3 className="mx-[16px] text-[18px] font-bold">Key Ingredients</h3>
                             <div className="mx-[16px] mt-[10px] mb-[20px] grid grid-cols-[50%_50%] gap-[5px] text-justify">
                                 <div className="mr-[5px] leading-[30px]">

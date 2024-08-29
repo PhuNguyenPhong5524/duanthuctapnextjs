@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '', 
   port: process.env.DB_PORT || 3306, 
-  database: process.env.DB_NAME || 'laptop_react'
+  database: process.env.DB_NAME || 'project1thuctap'
 }); 
 db.connect( err => { if (err) throw err; console.log('Da ket noi database') });
 
@@ -115,11 +115,13 @@ app.get('/sp/:id', function(req, res) {
   } 
 
   let sql = `
-    SELECT sp.id, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, 
-           tt.ram, tt.cpu, tt.dia_cung, tt.can_nang
+  SELECT sp.id, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, sp.mo_ta,
+           tt.ram, tt.cpu, tt.dia_cung, tt.can_nang,
+           l.ten_loai
     FROM san_pham sp
     LEFT JOIN thuoc_tinh tt ON sp.id = tt.id_sp
-    WHERE sp.id = ? ;
+    LEFT JOIN loai l ON sp.id = l.id
+    WHERE sp.id = ?;
   `
   ;
    db.query(sql, id, (err, data) => {

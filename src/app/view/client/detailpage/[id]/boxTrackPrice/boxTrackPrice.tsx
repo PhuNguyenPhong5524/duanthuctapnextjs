@@ -1,13 +1,23 @@
+"use client"
+
 import { ButtonTRACKPRICE } from "@/app/component/Btton/Btton"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-
   DialogTrigger,
 } from "@/components/ui/dialog"
- 
-export function BoxTrackPrice() {
+import * as React from "react";
+import IProductDetail from './../../../../../types/inrterfaceProductDetail';
+
+
+interface MainDetailProps {
+  productdetail: IProductDetail;
+}
+
+
+ const BoxTrackPrice: React.FC<MainDetailProps> = ({ productdetail }) =>  {
+  const oneusd:number = 24000;
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -16,19 +26,18 @@ export function BoxTrackPrice() {
       <DialogContent className="sm:max-w-[479px] h-[529px] pt-[50px]">
             <div className="mx-[10px]">
                     <div className="flex gap-[20px] mb-[10px]">
-                         <div className="bg-[#f1f1f1] w-[117px] h-[108px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
+                         <div className="bg-[#ffff] w-[117px] h-[108px] flex justify-center items-center cursor-pointer"><img src={productdetail.hinh} alt={productdetail.ten_sp} /></div>
                         <div className="mb-[10px]">
-                            <p className="text-[14px] mb-[5px] font-bold">BRAND</p>
-                            <p className="text-[22px] font-bold">Product Name Goes Here</p>
+                            <p className="text-[14px] mb-[5px] font-bold">{productdetail.ten_loai}</p>
+                            <p className="text-[22px] font-bold">{productdetail.ten_sp}</p>
                             <div className="relative flex gap-[5px] items-end mt-[22px]">
                                 <div>
-                                    <p className="text-[14px] font-sans font-bold text-[#c2c2c2]">AED 32.00</p>
-                                    <p className="absolute translate-y-[-12px] border-[1.5px] w-[71px] ml-[-1px] bg-[#464646]"></p>
+                                    <p className="text-[14px] font-sans font-bold text-[#c2c2c2]"><del>AED {(productdetail.gia / oneusd).toFixed(1)}</del></p>
                                 </div>
                                 <div className="mr-[25px]">
-                                    <p className="text-[14px] font-sans font-bold text-[black]">AED 25.60</p>
+                                    <p className="text-[14px] font-sans font-bold text-[black]">AED {(productdetail.gia_km / oneusd).toFixed(1)}</p>
                                 </div>
-                                <div className="border-2 border-[#000] text-[10px] p-[2px] w-[95px] h-[32px] font-semibold flex justify-center items-center"><p>30% OFF</p></div>
+                                <div className="border-2 border-[#000] text-[15px] font-[700] p-[2px] w-[95px] h-[32px] font-semibold flex justify-center items-center"><p>{(Math.round(((productdetail.gia - productdetail.gia_km)/productdetail.gia)*100))}% OFF</p></div>
                             </div>
                         </div>
                     </div>
@@ -49,3 +58,5 @@ export function BoxTrackPrice() {
     </Dialog>
   )
 }
+
+export default BoxTrackPrice;
