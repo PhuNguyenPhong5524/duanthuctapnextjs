@@ -24,7 +24,6 @@ const MainDetail: React.FC = () => {
         if (id) {
           const data = await getapiDataProductDetail(Number(id));
           setProductDetail(data);
-          console.log(data);
         }
       };
       fetchData();
@@ -35,12 +34,13 @@ const MainDetail: React.FC = () => {
         addToCart({...productdetail, quantity: 1 });
       }
     };
+
     const oneusd: number = 24000;
     return (
         <div className="bg-[#f1f1f1] mt-[-30px] " >
             {productdetail && (
                <div className="pt-[40px] grid justify-center">
-                    <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Brand</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.slug}</a>  </div>
+                    <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.ten_loai}</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.slug}</a>  </div>
                         <div className="h-[514px] w-[1025px] ml-[10px] bg-[#fff] mt-[20px] pt-[45px] mb-[15px]">
                             <div className="grid grid-cols-[5%_50%_45%] mx-[40px] gap-[20px] justify-center">
                             <div className=" flex flex-col justify-start items-center gap-[10px] pt-[5px]">

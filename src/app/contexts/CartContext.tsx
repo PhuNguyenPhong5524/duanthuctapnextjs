@@ -1,14 +1,8 @@
-// contexts/CartContext.tsx
 "use client"
 
-import React, { createContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useState, ReactNode, useEffect, useContext } from 'react';
 import CartItem from './../types/interfaceCartItem';
-import { useContext } from 'react';
 import IProductDetail from './../types/inrterfaceProductDetail';
-
-
-
-
 interface CartContextType {
   cart: CartItem[];
   addToCart: (item: IProductDetail) => void;
@@ -28,9 +22,9 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setCart(JSON.parse(savedCart));
       }
     }
-  }, []);
+  }, []); // Chạy một lần khi component mount
 
-  const addToCart = (item: CartItem) => {
+  const addToCart = (item: IProductDetail) => {
     setCart((prevCart) => {
       const existingItemIndex = prevCart.findIndex((cartItem) => cartItem.id === item.id);
       const updatedCart = existingItemIndex !== -1
@@ -51,7 +45,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const removeFromCart = (id: number) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.filter((cartItem) => cartItem.id !== id);
-      // Cập nhật localStorage
       localStorage.setItem('cart', JSON.stringify(updatedCart));
       return updatedCart;
     });

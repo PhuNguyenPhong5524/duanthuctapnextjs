@@ -10,7 +10,7 @@ import { useCart } from "@/app/contexts/CartContext";
 
 
  const Header: React.FC = () => {
-    let logoo = './logo.png';
+    let logoo = '/logo.png';
     const {cart} = useCart();
     return (
         <div className="bg-[#f1f1f1]">

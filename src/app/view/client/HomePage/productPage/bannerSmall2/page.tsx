@@ -1,9 +1,9 @@
 export default function BannerSmall() {
-    let img = 'Đang cập nhật...'
+
     return (
         <div className=" bg-[#e3e3e3]  flex justify-between items-center relative">
-                <div className="overflow-hidden relative">
-                    <img src={img} alt={img} className="object-cover w-[1025px] h-[177px]" />
+                <div className="overflow-hidden relative w-[1025px] h-[177px]">
+                    {/* <img src={img} alt={img_name} className="object-cover w-[1025px] h-[177px]" /> */}
                 </div>
                 <div className="absolute right-[10px] flex justify-center gap-[50px] items-center pr-[50px]">
                     <div>

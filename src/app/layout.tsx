@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -19,15 +21,15 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en">
       <HeadLG/>
+      <CartProvider>
       <body className={inter.className}>
-       <CartProvider>
           <Header />
           <main id="main">
               {children}
           </main>
           <Footer />
-       </CartProvider>
       </body>
+      </CartProvider>
     </html>
   );
 }

@@ -1,22 +1,29 @@
 "use client"
 
-import { ButtonRemoveCartPD } from "@/app/component/Btton/Btton";
 import React from 'react';
 import { useCart } from "@/app/contexts/CartContext";
 
 
 
 const ProductCart: React.FC = () => {
-    const { cart } = useCart();
-  
+    let imgGH = '/bg_gh.webp';
+    const { cart, removeFromCart } = useCart();
     if (!cart || cart.length === 0) {
-      return <div>Giỏ hàng trống</div>;
+      return <div >
+                   <div className="flex justify-center"> <img src={imgGH} alt={imgGH} /></div>
+                    <h1 className="text-center mt-[-30px] text-[20px] font-bold font-sans text-[#e1e1e1]">Giỏ hàng trống...</h1>
+            </div>;
     }
-  
+    const handleRemoveToCart = (id: number) =>{
+       if(typeof window.confirm("Đăng nhập để thêm sản phẩm vào giỏ hàng !")){
+             removeFromCart(id);
+       }
+
+    }
     return (
         <div className="mb-[20px]">
             {cart.map((item) => (
-            <div className="flex justify-between gap-[20px] mb-[10px]" key={item.id}>
+            <div className="relative flex justify-between gap-[20px] mb-[30px]" key={item.id}>
                 <div className="bg-[#fff] w-[105px] h-[105px] flex justify-center items-center cursor-pointer mr-[20px]  ">
                      <img src={item.hinh} alt={item.ten_sp} />
                 </div>
@@ -42,9 +49,9 @@ const ProductCart: React.FC = () => {
                     </div>
                 </div>
                 <div>
-                    <ButtonRemoveCartPD />
+                    <button onClick={() => handleRemoveToCart(item.id)} className="flex justify-center items-center w-[145px] h-[49px] bg-[#fff] text-[#000] font-sans font-bold border-2 border-[#000] hover:bg-[#000] hover:text-[#fff] hover:border-[#000] cursor-pointer">REMOVE</button>
                 </div>
-                <hr />
+                <hr className="absolute w-[100%] bottom-0 translate-y-[12px]" />
             </div>
             ))}
       </div>

@@ -24,7 +24,6 @@ export default function SlideProduct() {
      const fecthData = async () =>{
        const data = await getapiDataProductNew();
        setproductnew(data);
-       console.log(data);
      }
        fecthData();
    },[])

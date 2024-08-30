@@ -38,11 +38,7 @@ export function ButtonTRACKPRICE() {
     )
 }
 
-export function ButtonRemoveCartPD() {
-    return (
-        <div className="flex justify-center items-center w-[145px] h-[49px] bg-[#fff] text-[#000] font-sans font-bold border-2 border-[#000] hover:bg-[#000] hover:text-[#fff] hover:border-[#000] cursor-pointer">REMOVE</div>
-    )
-}
+
 
 export function ButtonContinue() {
     return (
