@@ -57,3 +57,4 @@ export function ButtonAddNewReview() {
         <div className="flex justify-center items-center w-[145px] h-[49px] bg-black text-[#fff] font-sans text-[16px] font-semibold border-2 hover:bg-[#fff] hover:text-[#000] hover:border-[#000] cursor-pointer"><Link href="/view/admin/addnewreview">ADD NEW REVIEW</Link></div>
     )
 }
+

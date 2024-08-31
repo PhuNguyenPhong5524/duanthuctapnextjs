@@ -42,7 +42,7 @@ const ProductCart: React.FC = () => {
                         <div className="flex items-center justify-center p-[5px] w-[38px] font-semibold text-[#000] bg-[#f1f1f1] h-[31px] hover:border-2 cursor-pointer hover:bg-[#fff] hover:text-[black]">
                             <i className="fa-solid fa-minus"></i>
                         </div>
-                        <input type="number" placeholder="1" className="flex items-center justify-center p-[5px] w-[38px] font-semibold text-[#000] border-[black] placeholder:text-[black] bg-[#fff] h-[31px] border-2 cursor-pointer" />
+                        <input type="number" value={item.quantity} className="flex items-center justify-center p-[5px] w-[38px] font-semibold text-[#000] border-[black] placeholder:text-[black] bg-[#fff] h-[31px] border-2 cursor-pointer" />
                         <div className="flex items-center justify-center p-[5px] w-[38px] font-semibold text-[#000] bg-[#f1f1f1] h-[31px] hover:border-2 cursor-pointer hover:bg-[#fff] hover:text-[black]">
                             <i className="fa-solid fa-plus"></i>
                         </div>

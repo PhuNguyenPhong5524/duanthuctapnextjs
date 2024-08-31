@@ -8,6 +8,7 @@ import BoxShowshopp from "./boxShowshop2/boxshop2";
 import SlideProduct from "./slideProduct/page";
 
 
+
 export default function ProductPage() {
     return (
         <div className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -63,7 +64,7 @@ export default function ProductPage() {
                     <ViewUserPage />
                     <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
                     <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div>
-            </div> 
+            </div>  
         </div>
     );
 }

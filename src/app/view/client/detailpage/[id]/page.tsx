@@ -32,6 +32,7 @@ const MainDetail: React.FC = () => {
     const handleAddToCart = () => {
       if (productdetail) {
         addToCart({...productdetail, quantity: 1 });
+        alert("Đã thêm vào giỏ hàng");
       }
     };
 

@@ -3,10 +3,6 @@
 import Link from "next/link";
 import * as React from "react";
 import { useEffect, useState } from "react";
-
-
-
-
 import {
 
   Carousel,
@@ -15,11 +11,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { classname } from "@/app/types/classname";
 import { getapiDataProductNew } from "@/app/utils/axiosIntance";
+import {ButtonAddPD} from "@/app/component/Btton/buttonadd";
+import { useCart } from "@/app/contexts/CartContext";
+import IProductDetail from "@/app/types/inrterfaceProductDetail";
 
-export default function SlideProduct() {
-   const [productnew,setproductnew] = useState<classname[]>([]);
+const  SlideProduct: React.FC = () => {
+   const [productnew,setproductnew] = useState<IProductDetail[]>([]);
+   const { addToCart } = useCart();
    useEffect(() => {
      const fecthData = async () =>{
        const data = await getapiDataProductNew();
@@ -27,6 +26,11 @@ export default function SlideProduct() {
      }
        fecthData();
    },[])
+   const handleAddToCart = (product: IProductDetail) => {
+    if (productnew) {
+      addToCart({...product, quantity: 1 });
+    }
+  };
     
 const oneusd = 24000;
   return (
@@ -40,7 +44,7 @@ const oneusd = 24000;
         {productnew.map((sp) => (
           <CarouselItem key={sp.id} className="md:basis-1/2 lg:basis-1/4">
             <div className="p-1">
-                <div className="relative group bg-[#fff] h-[360px] w-[240px] shadow-none mb-[10px] overflow-hidden hover:shadow-[0px_8px_24px_rgba(139,146,153,0.2)] "  key={sp.id}>
+                <div className="relative group bg-[#fff] h-[360px] w-[240px] shadow-none mb-[10px] overflow-hidden hover:shadow-[0px_2px_24px_rgba(139,146,153,0.2)] "  key={sp.id}>
                  
                     <div className=" flex justify-center h-[260px] ">
                         <div className="flex justify-center items-center"><img src={sp.hinh} alt={sp.ten_sp} className="h-[130px] transition-transform ease-in-out transform duration-300 group-hover:scale-[120%]" /> </div>       
@@ -59,7 +63,7 @@ const oneusd = 24000;
                             </div>
                             <div className="border-2 border-[#000] text-[10px] p-[1px] font-bold">{(Math.round(((sp.gia - sp.gia_km)/sp.gia)*100))} % OFF</div> 
                         </div>
-                        
+                      <div onClick={() => handleAddToCart(sp)}><ButtonAddPD />  </div>
                     </div>
                 </div>
             </div>
@@ -73,3 +77,6 @@ const oneusd = 24000;
     </Carousel>
   )
 }
+
+
+export default  SlideProduct;
