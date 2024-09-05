@@ -1,13 +1,14 @@
 import Link from "next/link";
 import BannerSmall1 from "./bannerSmall1/page";
 import BannerSmall2 from "./bannerSmall2/page";
-import {BoxProduct1} from "./boxProduct/page";
-import {BoxProduct2} from "./boxProduct/page";
+import BoxProduct from "./boxProduct/page";
+
 import ViewUserPage from "./viewUser/viewus";
 import BoxShowshop from "./boxShowshop/page";
 import BoxShowshopp from "./boxShowshop2/boxshop2";
 import SlideProduct from "./slideProduct/page";
 import SlideProduct2 from "./slideProduct2/page";
+import BoxProduct2  from "./boxProduct2/page";
 
 
 export default function ProductPage() {
@@ -21,7 +22,7 @@ export default function ProductPage() {
                         <BoxShowshop />
                     </div>
                     <div className=" w-[505px] h-[342px] flex justify-between ">
-                       <BoxProduct1 />
+                       <BoxProduct />
                   
                     </div>
                   

@@ -7,25 +7,27 @@ import { ButtonAddPD } from "@/app/component/Btton/buttonadd";
 import { useCart } from "@/app/contexts/CartContext";
 
 const oneusd = 24000;
-export default function BoxProduct() {
-    const [products, setProducts] = useState<IProductDetail[]>([]);
+
+
+export default function BoxProduct2() {
+    const [productss, setProductss] = useState<IProductDetail[]>([]);
     const { addToCart } = useCart();
     useEffect(() => {
         const fetchProducts = async () => {
             const response = await getPDHot();
-            setProducts(response);
+            setProductss(response);
         };
         fetchProducts();
     }, []);
     const handleAddToCart = (product: IProductDetail) => {
-        if (products) {
+        if (productss) {
           addToCart({...product, quantity: 1 });
         }
       };
     return (
       <>
-        {products.filter(sp => sp.id_loai === 1).slice(0, 2).map((pd) => (
-        <div className= "group bg-[#fff] h-[360px] w-[245px] shadow-none hover:shadow-[0px_8px_24px_rgba(139,146,153,0.2)] " key={pd.id}>
+        {productss.filter(sp => sp.id_loai === 5).slice(0, 2).map((pd) => (
+        <div className= "group bg-[#fff] h-[360px] w-[246px] shadow-none hover:shadow-[0px_8px_24px_rgba(139,146,153,0.2)] " key={pd.id}>
             <div className="relative flex justify-center items-center h-[260px] ">
                  <img src={pd.hinh} alt={pd.hinh} className="object-cover w-[160px] h-[160px] group-hover:scale-105 transition-all duration-300 group-hover:slate-y-[-10px] tranform trasition-all group-hover:border-[#fa2623]" />
                  <div className="absolute ml-[-160px] mt-[220px] text-[#fff] text-[10px] w-[66px] h-[24px] bg-[black] flex justify-center items-center font-bold">CATEGORY</div>
@@ -52,6 +54,3 @@ export default function BoxProduct() {
 
     );
 }
-
-
-
