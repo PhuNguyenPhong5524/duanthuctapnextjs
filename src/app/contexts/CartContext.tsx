@@ -67,11 +67,9 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setCart((prevCart) => {
       const updatedCart = prevCart
         .map((cartItem) =>
-          cartItem.id === id
-            ? { ...cartItem, quantity: (cartItem.quantity || 0) - 1 }
-            : cartItem
+          cartItem.id === id ? { ...cartItem, quantity: (cartItem.quantity || 0) - 1 } : cartItem
         )
-        .filter((cartItem) => !(cartItem.id === id && cartItem.quantity! <= 1)); 
+        .filter((cartItem) => !(cartItem.id === id && cartItem.quantity! <= 0)); 
   
       localStorage.setItem('cart', JSON.stringify(updatedCart));
       
