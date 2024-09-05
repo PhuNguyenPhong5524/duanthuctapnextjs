@@ -9,7 +9,7 @@ export function ButtonAddPD() {
         onClick={() =>
             toast("Thông báo", {
             description: "Sản phẩm đã thêm thành công!",
-            duration: 10000,
+            duration: 2000,
             className:"w-[72%] ml-[85px] text-[15px] font-bold font-sans", 
             })
         }
