@@ -32,7 +32,7 @@ interface MainDetailProps {
                             <p className="text-[22px] font-bold">{productdetail.ten_sp}</p>
                             <div className="relative flex gap-[5px] items-center mt-[22px]">
                                 <div>
-                                    <p className="text-[14px] font-sans font-bold text-[#c2c2c2]"><del>AED {(productdetail.gia / oneusd).toFixed(1)}</del></p>
+                                    <p className="text-[12.2px] font-sans font-bold text-[#c2c2c2]"><del>AED {(productdetail.gia / oneusd).toFixed(1)}</del></p>
                                 </div>
                                 <div className="mr-[25px]">
                                     <p className="text-[14px] font-sans font-bold text-[black]">AED {(productdetail.gia_km / oneusd).toFixed(1)}</p>

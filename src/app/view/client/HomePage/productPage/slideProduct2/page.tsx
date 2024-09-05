@@ -16,7 +16,7 @@ import {ButtonAddPD} from "@/app/component/Btton/buttonadd";
 import { useCart } from "@/app/contexts/CartContext";
 import IProductDetail from "@/app/types/inrterfaceProductDetail";
 
-const  SlideProduct: React.FC = () => {
+const  SlideProduct2: React.FC = () => {
    const [productnew,setproductnew] = useState<IProductDetail[]>([]);
    const { addToCart } = useCart();
    useEffect(() => {
@@ -42,10 +42,14 @@ const oneusd = 24000;
     >
       <CarouselContent>
         {productnew.map((sp) => (
-          <CarouselItem key={sp.id} className="md:basis-1/2 lg:basis-1/4">
-            <div className="p-1">
-                <div className="relative group bg-[#fff] h-[370px] w-[250px] shadow-none mb-[10px] overflow-hidden hover:shadow-[0px_2px_24px_rgba(139,146,153,0.2)] "  key={sp.id}>
-                 
+          <CarouselItem key={sp.id} className="md:basis-1/2 lg:basis-1/4 ">
+            <div className="px-[9px] relative">
+                <div className="relative group z-12">
+                    <div className="absolute flex justify-center items-center text-[#fff] text-[13px] w-[61px] h-[25px] bg-[black] ml-[-8.5px] mt-[15px]">Sale!</div>
+                    <div className= " mt-[41.5px] absolute translate-x-[-11px] w-0 h-0 border-l-[12px] border-l-transparent tranform rotate-[270deg] border-r-[0] border-r-transparent border-b-[8px] border-b-[gray]"></div>
+                </div>
+                <div className=" z-10 group bg-[#fff] h-[370px] w-[248px] shadow-none mb-[10px] overflow-hidden hover:shadow-[0px_2px_24px_rgba(139,146,153,0.2)] "  key={sp.id}>
+              
                     <div className=" flex justify-center h-[260px] ">
                         <div className="flex justify-center items-center"><img src={sp.hinh} alt={sp.ten_sp} className="h-[110px] w-[120px] transition-transform ease-in-out transform duration-300 group-hover:scale-[120%]" /> </div>       
                         <div className="absolute ml-[-160px] mt-[220px] text-[#fff] text-[10px] w-[66px] h-[24px] bg-[black] flex justify-center items-center font-bold">CATEGORY</div>
@@ -79,4 +83,4 @@ const oneusd = 24000;
 }
 
 
-export default  SlideProduct;
+export default  SlideProduct2;

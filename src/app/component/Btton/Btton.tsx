@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function ButtonShopNow() {
     return (
-        <button className="absolute text-[16px] font-bold w-[160px] h-[63px] border-2 border-black translate-y-[-90px] bg-[#fff] hover:bg-[#000] hover:text-[#fff]" >SHOP NOW</button>
+        <button className="absolute text-[16px] font-bold w-[160px] h-[63px] border-2 border-black translate-y-[-90px] bg-[#fff] hover:bg-[#000] hover:text-[#fff] hover:border-[#fff]" >SHOP NOW</button>
     );
 }
 

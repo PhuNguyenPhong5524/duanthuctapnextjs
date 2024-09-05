@@ -1,4 +1,4 @@
-import { api, apiCaterogy, apiProductDetail, apiProductNew, apiProductWithCaterogy } from "../services/api";
+import { api, apiCaterogy, apiProductDetail, apiProductNew, apiProductWithCaterogy, getProductHot } from "../services/api";
 
 
 export const getapiDataProduct = async () => {
@@ -25,5 +25,10 @@ export const getapiDataWithCaterogyandProduct = async (idloai: number) => {
 export const getapiDataProductDetail = async (id: number) => {
     const apiPdDt = apiProductDetail(id);
     const response = await apiPdDt.get('/');
+    return response.data;
+}
+
+export const getPDHot = async () => {
+    const response = await getProductHot.get("/");
     return response.data;
 }

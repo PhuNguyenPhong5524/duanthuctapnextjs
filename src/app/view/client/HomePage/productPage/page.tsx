@@ -1,12 +1,13 @@
 import Link from "next/link";
 import BannerSmall1 from "./bannerSmall1/page";
 import BannerSmall2 from "./bannerSmall2/page";
-import BoxProduct from "./boxProduct/page";
+import {BoxProduct1} from "./boxProduct/page";
+import {BoxProduct2} from "./boxProduct/page";
 import ViewUserPage from "./viewUser/viewus";
 import BoxShowshop from "./boxShowshop/page";
 import BoxShowshopp from "./boxShowshop2/boxshop2";
 import SlideProduct from "./slideProduct/page";
-
+import SlideProduct2 from "./slideProduct2/page";
 
 
 export default function ProductPage() {
@@ -15,28 +16,28 @@ export default function ProductPage() {
             <div className=" translate-x-[-121%] my-[30px]">
                 <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">NEW ARRIVALS</h2> <Link href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</Link></div>
             </div>
-            <div className="flex justify-between  gap-[15px] mb-[20px] ">
+            <div className="flex justify-between  gap-[15px] mb-[35px] ">
                     <div className="bg-[gray] w-[505px] h-[342px]">
                         <BoxShowshop />
                     </div>
                     <div className=" w-[505px] h-[342px] flex justify-between ">
-                       <BoxProduct />
-                       <BoxProduct />
+                       <BoxProduct1 />
+                  
                     </div>
                   
             </div>
             <div className="flex justify-between  gap-[15px] mb-[20px] ">
                     <div className=" w-[505px] h-[342px] flex justify-between ">
-                            <BoxProduct />
-                            <BoxProduct />
+                            <BoxProduct2 />
+                          
                     </div>
                     <div className="bg-[gray] w-[505px] h-[342px]">
                         <BoxShowshopp />
                     </div>
             </div>
             
-               <div className="translate-x-[-121%] my-[30px]">
-                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">NEW ARRIVALS</h2> <a href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</a></div>
+            <div className="translate-x-[-67%] my-[30px]">
+                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">OUTSTANDING PRODUCT</h2> <a href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</a></div>
             </div>
             <div className=" relative flex justify-between gap-[15px] items-center mb-[30px]  ">
                     <SlideProduct />
@@ -47,10 +48,10 @@ export default function ProductPage() {
                 <BannerSmall1 />
             </div>
             <div className=" translate-x-[-121%] my-[30px]">
-                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">NEW ARRIVALS</h2> <a href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</a></div>
+                <div className="flex items-end gap-[10px]"><h2 className="text-[28px] font-bold mr-[10px]">PRODUCT SALE</h2> <a href="#" className="text-[16px] font-extrabold text-black underline ">SEE ALL</a></div>
             </div>
             <div className=" relative flex justify-between gap-[15px]    items-center mb-[30px]  ">
-                    <SlideProduct />
+                    <SlideProduct2 />
                     {/* <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
                     <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div> */}
             </div> 
@@ -62,8 +63,8 @@ export default function ProductPage() {
             </div>
              <div className=" relative flex justify-between gap-[15px] items-center mb-[30px]  ">
                     <ViewUserPage />
-                    <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
-                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div>
+                    {/* <div className="absolute bg-[#cccccc] h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer ml-[-35px]"><i className="fa-solid fa-chevron-left my-auto text-[#fff]"></i></div>
+                    <div className="absolute bg-[#cccccc] right-0 h-[80px] w-[25px] flex items-center pl-[8px] cursor-pointer mr-[-35px]"><i className="fa-solid fa-chevron-right text-[#fff]"></i></div> */}
             </div>  
         </div>
     );

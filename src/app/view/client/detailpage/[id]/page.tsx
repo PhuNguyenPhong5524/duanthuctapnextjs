@@ -42,7 +42,7 @@ const MainDetail: React.FC = () => {
             {productdetail && (
                <div className="pt-[40px] grid justify-center">
                     <div className="translate-x-[10px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Skincare</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.ten_loai}</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">{productdetail.slug}</a>  </div>
-                        <div className="h-[514px] w-[1025px] ml-[10px] bg-[#fff] mt-[20px] pt-[45px] mb-[15px]">
+                        <div className="h-auto w-[1025px] ml-[10px] bg-[#fff] mt-[20px] pt-[25px] mb-[15px]">
                             <div className="grid grid-cols-[5%_50%_45%] mx-[40px] gap-[20px] justify-center">
                             <div className=" flex flex-col justify-start items-center gap-[10px] pt-[5px]">
                                 <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#fff] w-[80px] h-[50px] flex justify-center border-2 p-1 items-center cursor-pointer hover:border-[black]" />
@@ -51,16 +51,15 @@ const MainDetail: React.FC = () => {
                                 <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer "><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div>
                                 <div className="bg-[#f1f1f1] w-[55px] h-[55px] flex justify-center items-center cursor-pointer"><i className="fa-regular fa-image text-[#d5d5d5] text-[40px] "></i></div> */}
                             </div>
-                            <img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#f1f1f1] h-[380px] mt-[5px] flex justify-center items-center cursor-pointer" /> 
+                            <div className="flex justify-center items-start"><img src={productdetail.hinh} alt={productdetail.ten_sp} className="bg-[#f1f1f1] h-[320px] w-[340px] mt-[5px] flex justify-center items-center cursor-pointer" /></div> 
                             <div className=" mt-[5px]">
-                                <p className="text-[14px] font-bold">{productdetail.ten_loai}</p>
                                 <h1 className="font-sans text-[26px] font-semibold">{productdetail.ten_sp}</h1>
-                                <div className="flex items-center gap-[10px] mt-[1px]">
-                                    <div><i className="fa-regular fa-heart text-[18px] "></i></div>
-                                    <div><p className="mt-[5px] text-[14px] ml-[-8px] font-semibold">Add to Favourites</p></div>
+                                <div className="flex items-center gap-[15px] mt-[1px]">
+                                    <div><i className="fa-solid fa-eye text-[18px]"></i></div>
+                                    <div><p className="text-[14px] ml-[-8px] font-semibold">{productdetail.luot_xem}</p></div>
                                 </div>
-                                <div className="mt-[10px]"><p className="text-[14px] font-bold">Nisl, do fames, consequat adipisicing. Recusandae platea neque, cum, accusamus </p></div>
-                                <a href="#" className="text-[12px] underline font-extrabold hover:text-[blue]">Read More</a>
+                                {/* <div className="mt-[10px]"><p className="text-[14px] font-bold">Nisl, do fames, consequat adipisicing. Recusandae platea neque, cum, accusamus </p></div>
+                                <a href="#" className="text-[12px] underline font-extrabold hover:text-[blue]">Read More</a> */}
                                 <div className="relative flex gap-[5px]  items-center mb-[10px]">
                                     <div>
                                         <p className="text-[17px] font-sans font-semibold text-[#c2c2c2]"><del>AED {(productdetail.gia / oneusd).toFixed(1)}</del></p>
@@ -88,10 +87,31 @@ const MainDetail: React.FC = () => {
                                     <ButtonKindDetailPageSmall/>
                                     <ButtonKindDetailPageSmall/>
                                     <ButtonKindDetailPageSmall/>
-                                    <ButtonKindDetailPageSmall/>
-                                    <ButtonKindDetailPageSmall/>
-                                    <ButtonKindDetailPageSmall/>
-                                    <ButtonKindDetailPageSmall/>
+                                </div>
+                                <div className="mb-[20px]">
+                                    <div className="my-[10px]"><h2 className="mt-[5px] text-[18px] font-bold hover:text-[blue] hover:underline"> Technical specifications </h2></div>
+                                    <div className="border-2 border-[#f1f1f1] rounded-[6px] h-auto pb-[10px]">
+                                        <div className="h-[35px] bg-[#faf7f7] m-4 flex items-center px-4">
+                                            <div className="mr-[150px]"><h3 className="text-[16px] font-bold">RAM</h3></div>
+                                            <div><p className="text-[16px] text-[#c2c2c2] font-semibold">{productdetail.ram}</p></div>
+                                        </div>
+                                        <div className="h-[35px] bg-[#faf7f7] m-4 flex items-center px-4">
+                                            <div className="mr-[152px]"><h3 className="text-[16px] font-bold">CPU</h3></div>
+                                            <div><p className="text-[16px] text-[#c2c2c2] font-semibold">{productdetail.cpu}</p></div>
+                                        </div>
+                                        <div className="h-[35px] bg-[#faf7f7] m-4 flex items-center px-4">
+                                            <div className="mr-[152px]"><h3 className="text-[16px] font-bold">HDD</h3></div>
+                                            <div><p className="text-[16px] text-[#c2c2c2] font-semibold">{productdetail.dia_cung}</p></div>
+                                        </div>
+                                        <div className="h-[35px] bg-[#faf7f7] m-4 flex items-center px-4">
+                                            <div className="mr-[133px]"><h3 className="text-[16px] font-bold">COLOR</h3></div>
+                                            <div><p className="text-[16px] text-[#c2c2c2] font-semibold">{productdetail.mau_sac}</p></div>
+                                        </div>
+                                        <div className="h-[35px] bg-[#faf7f7] m-4 flex items-center px-4">
+                                            <div className="mr-[140px]"><h3 className="text-[16px] font-bold">MASS</h3></div>
+                                            <div><p className="text-[16px] text-[#c2c2c2] font-semibold">{productdetail.can_nang} kg</p></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 </div>
                             </div>

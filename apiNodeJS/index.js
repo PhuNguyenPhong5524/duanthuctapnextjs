@@ -51,7 +51,7 @@ app.get('/sphot', function(req, res) {
   if (spxn <= 1){
       spxn = 9;
   }
-    let sql = `SELECT * FROM san_pham WHERE luot_xem > 900`;
+    let sql = `SELECT * FROM san_pham WHERE luot_xem > 800`;
     db.query(sql,(err, data) => {
       if (err) res.json({"thongbao": "Lỗi lấy thông tin sản phẩm hót", err });
       else res.json(data);
@@ -66,7 +66,13 @@ app.get('/sphot', function(req, res) {
       else res.json(data);
      });   
 });
-
+app.get('/spnoibat', function(req, res) {
+    let sql = `SELECT * FROM san_pham WHERE hot = 1`;
+    db.query(sql,(err, data) => {
+      if (err) res.json({"thongbao": "Lỗi lấy thông tin sản phẩm hót", err });
+      else res.json(data);
+    });   
+  });
 
 app.get('/sanpham/:id', function(req, res) {
   let id = parseInt(req.params.id);      
@@ -115,12 +121,12 @@ app.get('/sp/:id', function(req, res) {
   } 
 
   let sql = `
-  SELECT sp.id, sp.ten_sp, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, sp.mo_ta,
-           tt.ram, tt.cpu, tt.dia_cung, tt.can_nang,
+  SELECT sp.id, sp.ten_sp, sp.id_loai, sp.slug, sp.gia, sp.gia_km, sp.hinh, sp.ngay, sp.luot_xem, sp.mo_ta,
+           tt.ram, tt.cpu, tt.dia_cung, tt.can_nang, tt.mau_sac,
            l.ten_loai
     FROM san_pham sp
     LEFT JOIN thuoc_tinh tt ON sp.id = tt.id_sp
-    LEFT JOIN loai l ON sp.id = l.id
+    LEFT JOIN loai l ON sp.id_loai = l.id
     WHERE sp.id = ?;
   `
   ;

@@ -1,7 +1,14 @@
+"use client"
+
 import Link from "next/link";
 import ProductCart from "./productCart/productCart";
+import { useCart } from "@/app/contexts/CartContext";
 
-export default function MainCart() {
+
+const MainCart: React.FC = () => {
+    const { cart , totalPrice } = useCart();
+    const totalP = totalPrice();
+
     return (
         <div className="bg-[#f1f1f1] mt-[-30px] pb-[10px]" >
             <div className="pt-[40px] grid justify-center">
@@ -9,7 +16,7 @@ export default function MainCart() {
                 <h2 className="text-[28px] mx-[8px] font-sans mt-[10px] font-bold">CART</h2>
                 <div className="h-auto w-[1025px] ml-[10px] mt-[20px] mb-[15px] flex justify-between">
                 <div className="bg-[#fff] h-full w-[62%] pt-[45px] px-[20px]">
-                    <ProductCart/>
+                    <ProductCart  />
                 </div>
                 <div className="bg-[#fff] h-[512px] w-[35%] pt-[45px] px-[20px]">
                     <h2 className="text-[23px] mx-[8px] font-sans font-bold mb-[10px]">Add Promo Code</h2>
@@ -18,8 +25,8 @@ export default function MainCart() {
                     <h2 className="text-[23px] mx-[8px] font-sans font-bold mb-[10px]">Summary</h2>
                     <div className="mx-[8px]">
                         <div className="flex justify-between my-[10px]">
-                            <p className="text-[14px] font-semibold">Price (4 items)</p>
-                            <p className="text-[16px] font-bold">AED 128.60</p>
+                            <p className="text-[14px] font-semibold">Price ({cart.length} items)</p>
+                            <p className="text-[16px] font-bold">AED {totalP.toFixed(1)}</p>
                         </div>
                         <hr/>
                         <div className="flex justify-between my-[10px]">
@@ -43,3 +50,6 @@ export default function MainCart() {
     
     );
 }
+
+
+export default  MainCart;

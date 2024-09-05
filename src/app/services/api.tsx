@@ -13,7 +13,7 @@ export const apiProductNew = axios.create({
     baseURL: "http://localhost:3000/spmoi",
 });
 
-export const apiProductWithCaterogy = (idloai: number) => {
+export const apiProductWithCaterogy = (idloai: number) => { 
    return axios.create({
         baseURL: `http://localhost:3000/sptrongloai/${idloai}`,
     });
@@ -24,3 +24,7 @@ export const apiProductDetail = (id: number) => {
          baseURL: `http://localhost:3000/sp/${id}`,
      });
  }
+
+ export const getProductHot = axios.create({
+    baseURL: "http://localhost:3000/sp",
+});
