@@ -4,7 +4,7 @@ export default function MainRegistrationPage() {
             <div className="mt-[30px] mx-[220px]">
                 <div className="pt-[20px]"><a href="#" className="text-[12px] font-extrabold ">Home</a> <i className="fa-solid fa-chevron-right text-[9px] font-extrabold"></i> <a href="#" className="text-[12px] font-extrabold ">Registration</a>  </div>
                 <div className=" text-[28px] font-bold mt-[30px]">
-                    <div  className=""><h2 className="text-[28px] font-semibold">REGISTRATION</h2></div>
+                    <div  className=""><h2 className="text-[28px] mb-[30px] font-semibold">REGISTRATION</h2></div>
                     <div className="h-[1044px] bg-[#fff] pt-[45px] ">
                         <div className="flex justify-center gap-[25px] ">
                             <div className="flex justify-center items-center gap-[2px] mb-[10px]">
@@ -49,7 +49,7 @@ export default function MainRegistrationPage() {
                                 </div>
                                 <div>
                                     <div className="relative">
-                                        <label className="text-[14px] font-semibold">Last Name<p className="absolute ml-[74px] mt-[-28px]">*</p></label>
+                                        <label className="text-[14px] font-semibold">Full Name<p className="absolute ml-[70px] mt-[-28px]">*</p></label>
                                         <div><input type="text" className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]"/></div>
                                     </div>
                                     <div className="relative">
@@ -67,14 +67,22 @@ export default function MainRegistrationPage() {
                                         <div><input type="text" className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]"/></div>
                                     </div>
                                     <div className="relative">
-                                        <label className="text-[14px] font-semibold">Emirate</label>
+                                        <label className="text-[14px] font-semibold">Nationality</label>
                                         <div><input type="text" className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]"/></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="relative">
                                         <label className="text-[14px] font-semibold">Area</label>
-                                        <div><input type="text" className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]"/></div>
+                                        {/* <div><input type="text" className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]"/></div> */}
+                                        <div>
+                                            <select className="border-2 rounded-0 text-[14px] border-[black] h-[40px] w-[270px] pl-[10px] translate-y-[-5px] mb-[8px]">
+                                                <option value="0">Choose :</option>
+                                                <option value="1">Miền Bắc</option>
+                                                <option value="2">Miền Trung</option>
+                                                <option value="3">Miền Nam</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -1,9 +1,10 @@
-require('dotenv').config();  // Thêm dòng này để sử dụng dotenv
+require('dotenv').config();   // Thêm dòng này để sử dụng dotenv
 const mysql = require('mysql');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const crypto = require('crypto'); // để tạo OTP
+const nodemailer = require('nodemailer');
 app.use([cors(), express.json()]);
 
 const db = mysql.createConnection({
@@ -135,6 +136,7 @@ app.get('/sp/:id', function(req, res) {
         res.json({"Thông báo": "Lỗi lấy chi tiết sản phẩm", "error": err});
     } else {
         res.json(data[0]);
+
     }
 });  
 });
@@ -631,9 +633,121 @@ app.get('/thongke/sp', function(req, res) {
   });
 });
 
+// Kiểm tra email và gửi OTP
+
+app.post('/auth/v1/check-email', (req, res) => {
+  const { email, name, password } = req.body; // Lấy email, name, và password từ req.body
+
+  const query = 'SELECT * FROM users WHERE email = ?';
+  db.query(query, [email], (error, results) => {
+    if (error) {
+      console.error('Lỗi:', error);
+      return res.status(400).json({ message: 'Đã có lỗi xảy ra' });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000); // Tạo mã OTP (6 chữ số)
+
+    if (results.length === 0) {
+      // Email không tồn tại trong DB, thực hiện thêm email mới
+      const insertQuery = 'INSERT INTO users (email, name, password, otp) VALUES (?, ?, ?, ?)';
+      db.query(insertQuery, [email, name, password, otp], (insertError) => {
+        if (insertError) {
+          console.error('Lỗi:', insertError);
+          return res.status(400).json({ message: 'Đã có lỗi xảy ra' });
+        }
+        sendOtpEmail(email, otp, res);
+      });
+    } else {
+      // Email đã tồn tại, cập nhật OTP
+      const updateQuery = 'UPDATE users SET otp = ? WHERE email = ?';
+      db.query(updateQuery, [otp, email], (updateError) => {
+        if (updateError) {
+          console.error('Lỗi:', updateError);
+          return res.status(400).json({ message: 'Đã có lỗi xảy ra' });
+        }
+        sendOtpEmail(email, otp, res);
+      });
+    }
+  });
+});
 
 
 
+function sendOtpEmail(email, otp, res) {
+  try {
+    // Kiểm tra nếu các biến môi trường không được đặt
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.log('Missing EMAIL_USER or EMAIL_PASS'); // Log ra thông báo chi tiết để debug
+      return res.status(500).json({
+        message: 'Email không được cấu hình đúng',
+        error: 'Thiếu thông tin xác thực EMAIL_USER hoặc EMAIL_PASS'
+      });
+    }
+
+    // Tạo transporter để gửi email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Tạo thông tin email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Mã OTP của bạn',
+      text: `Mã OTP để đăng ký của bạn là: ${otp}`,
+    };
+
+    // Gửi email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Lỗi gửi email:', error);
+        return res.status(400).json({
+          message: 'Đã có lỗi xảy ra khi gửi email',
+          error: error.message
+        });
+      }
+      console.log('Email sent: ' + info.response);
+      return res.status(200).json({ message: 'OTP đã được gửi đến email của bạn' });
+    });
+
+  } catch (err) {
+    console.error('Internal server error:', err);
+    return res.status(500).json({
+      message: 'The server encountered an internal error',
+      error: err.message // Chỉ trả về thông tin chung để tránh lộ thông tin chi tiết.
+    });
+  }
+}
+
+
+
+
+
+
+// API kiểm tra số điện thoại
+
+app.post('/auth/v1/check-phone', async (req, res) => {
+  const { phone } = req.body;
+
+  try {
+    // Kiểm tra xem số điện thoại đã tồn tại trong cơ sở dữ liệu chưa
+    const [result] = await db.query('SELECT * FROM users WHERE dien_thoai = ?', [phone]);
+
+    if (result.length > 0) {
+      return res.status(400).json({ message: 'Số điện thoại đã tồn tại!' });
+    }
+
+    // Nếu số điện thoại chưa tồn tại, trả về thành công
+    return res.status(200).json({ message: 'Số điện thoại hợp lệ.' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Đã có lỗi xảy ra khi kiểm tra số điện thoại.' });
+  }
+});
 
 
 
